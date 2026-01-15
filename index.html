@@ -1,103 +1,114 @@
-<style>* {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-  background: #0f172a;
-  color: #fff;
-  height: 100vh;
-}
+  <title>Number Plate Scanner</title>
 
-.app {
-  max-width: 390px; /* iPhone 14 width */
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-h1 {
-  font-size: 24px;
-  font-weight: 600;
-  text-align: center;
-  margin: 8px 0;
-}
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: #0f172a;
+      color: #fff;
+      height: 100vh;
+    }
 
-video {
-  width: 100%;
-  height: 300px;
-  border-radius: 16px;
-  background: #000;
-  object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
+    .app {
+      min-height: 100vh;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
 
-.result {
-  text-align: center;
-  font-size: 16px;
-  margin-top: 8px;
-}
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      text-align: center;
+      margin: 12px 0;
+    }
 
-#reg {
-  display: block;
-  margin-top: 6px;
-  font-size: 28px;
-  letter-spacing: 2px;
-  font-weight: 700;
-  color: #38bdf8;
-}
+    video {
+      width: 100%;
+      height: 55vh;
+      border-radius: 18px;
+      background: black;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
 
-button {
-  width: 100%;
-  padding: 18px;
-  font-size: 18px;
-  border-radius: 14px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-}
+    .result {
+      text-align: center;
+      font-size: 18px;
+    }
 
-button.primary {
-  background: linear-gradient(135deg, #0ea5e9, #2563eb);
-  color: white;
-}
+    #reg {
+      display: block;
+      margin-top: 6px;
+      font-size: 32px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      color: #38bdf8;
+    }
 
-button.secondary {
-  background: #22c55e;
-  color: #052e16;
-}
+    button {
+      width: 100%;
+      padding: 20px;
+      font-size: 20px;
+      border-radius: 16px;
+      border: none;
+      font-weight: 600;
+    }
 
-button:disabled {
-  opacity: 0.4;
-}
+    .primary {
+      background: linear-gradient(135deg, #0ea5e9, #2563eb);
+      color: white;
+    }
 
-button:active {
-  transform: scale(0.98);
-}
-</style>
-<div class="app">
-  <h1>Scan Number Plate</h1>
+    .secondary {
+      background: #22c55e;
+      color: #052e16;
+    }
 
-  <video id="video" autoplay playsinline></video>
-  <canvas id="canvas" hidden></canvas>
+    button:disabled {
+      opacity: 0.4;
+    }
 
-  <p class="result">
-    Detected Reg
-    <strong id="reg">—</strong>
-  </p>
+    button:active {
+      transform: scale(0.97);
+    }
+  </style>
+</head>
 
-  <button id="openCamera" class="primary">
-    📸 Scan Number Plate
-  </button>
+<body>
+  <div class="app">
+    <h1>Scan Number Plate</h1>
 
-  <button id="go" class="secondary" disabled>
-    🚗 Check Car Tax
-  </button>
-</div>
+    <video id="video" autoplay playsinline></video>
+    <canvas id="canvas" hidden></canvas>
 
-<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-<script src="app.js"></script>
+    <p class="result">
+      Detected Reg
+      <strong id="reg">—</strong>
+    </p>
+
+    <button id="openCamera" class="primary">
+      📸 Scan Number Plate
+    </button>
+
+    <button id="go" class="secondary" disabled>
+      🚗 Check Car Tax
+    </button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
