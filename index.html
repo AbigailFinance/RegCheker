@@ -1,9 +1,103 @@
-<button id="openCamera">Scan Number Plate</button>
-<video id="video" autoplay playsinline></video>
-<canvas id="canvas" hidden></canvas>
+<style>* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
 
-<p>Detected Reg: <strong id="reg"></strong></p>
-<button id="go" disabled>Check Car Tax</button>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  background: #0f172a;
+  color: #fff;
+  height: 100vh;
+}
+
+.app {
+  max-width: 390px; /* iPhone 14 width */
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin: 8px 0;
+}
+
+video {
+  width: 100%;
+  height: 300px;
+  border-radius: 16px;
+  background: #000;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.result {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+#reg {
+  display: block;
+  margin-top: 6px;
+  font-size: 28px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+button {
+  width: 100%;
+  padding: 18px;
+  font-size: 18px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.primary {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  color: white;
+}
+
+button.secondary {
+  background: #22c55e;
+  color: #052e16;
+}
+
+button:disabled {
+  opacity: 0.4;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+</style>
+<div class="app">
+  <h1>Scan Number Plate</h1>
+
+  <video id="video" autoplay playsinline></video>
+  <canvas id="canvas" hidden></canvas>
+
+  <p class="result">
+    Detected Reg
+    <strong id="reg">—</strong>
+  </p>
+
+  <button id="openCamera" class="primary">
+    📸 Scan Number Plate
+  </button>
+
+  <button id="go" class="secondary" disabled>
+    🚗 Check Car Tax
+  </button>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 <script src="app.js"></script>
